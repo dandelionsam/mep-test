@@ -1,0 +1,36 @@
+.card-wrapper {
+  display: flex;
+  flex: 1;
+  margin-bottom: 16px;
+  @media screen and (min-width: 361px) {
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.card-wrapper:hover {
+  box-shadow: 0px 10px 80px rgb(0 0 0 / 8%);
+  a {
+    text-decoration: none;
+  }
+}
+
+.card {
+  display: flex;
+  padding: 24px 24px;
+  min-height: 200px;
+  border: 2px solid #eef0f2;
+  background: #ffffff;
+  border-radius: 16px;
+  height: 100%;
+  cursor: pointer;
+  width: 100%;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+
+  @media screen and (min-width: 361px) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

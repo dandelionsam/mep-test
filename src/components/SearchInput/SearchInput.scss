@@ -1,0 +1,26 @@
+.search-input-wrapper {
+  display: flex;
+  flex: 1 1 100%;
+}
+
+input {
+  display: flex;
+  flex: 1 1 100%;
+  background: rgb(255, 255, 255);
+  padding: 6px 16px;
+  border: 1px solid rgb(217, 219, 221);
+  border-radius: 4px;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: 24px;
+    color: #888888;
+  }
+}

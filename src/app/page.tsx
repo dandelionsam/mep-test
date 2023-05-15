@@ -1,113 +1,167 @@
-import Image from 'next/image'
+'use client';
+import Banner from '../components/Banner/Banner';
+import Card from '../components/Card/Card';
+import Divider from '../components/Divider/Divider';
+import MenuButton from '../components/MenuButton/MenuButton';
+import SearchButton from '../components/SearchButton/SearchButton';
+import SearchInput from '../components/SearchInput/SearchInput';
+import styles from '../styles/Home.module.scss';
+import useMediaQuery from './hooks/useMediaQuery';
 
 export default function Home() {
+  const isMobile = useMediaQuery(1440);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <Banner>
+        {'Spazi di lavoro impareggiabili. Ottimi sconti. Paghi il 25% in meno. *Si applicano Termini e condizioni'}
+      </Banner>
+      <header className="w-full">
+        {isMobile ? (
+          <nav className="flex items-center justify-between mx-8 my-2">
+            <div>
+              <div className="text-base">🧾</div>
+            </div>
+            <div>
+              <div className="text-base">🔍</div>
+            </div>
+            <div>
+              <a href="">
+                <img
+                  className="w-14"
+                  src="https://assets.iwgplc.com/image/upload/Sitecore/CD/-/media/regus/images/footer/regusheader_new.ashx"
+                />
+              </a>
+            </div>
+            <div>
+              <div className="text-base">📞</div>
+            </div>
+            <div>
+              <div className="text-base">👤</div>
+            </div>
+          </nav>
+        ) : (
+          <nav className="flex mx-11 my-5 justify-between p-4">
+            <div className="flex">
+              <div className="pr-6">
+                <a href="">
+                  <img src="https://assets.iwgplc.com/image/upload/Sitecore/CD/-/media/regus/images/footer/regusheader_new.ashx" />
+                </a>
+              </div>
+              <Divider variant="tall" />
+              <ul className={styles['nav-buttons']}>
+                <li className="nav-button-item">
+                  <MenuButton>{'Che cosa facciamo'}</MenuButton>
+                </li>
+                <li className="nav-button-item">
+                  <MenuButton>{'Inizia'}</MenuButton>
+                </li>
+                <li className="nav-button-item">
+                  <MenuButton>{'Scopri Regus'}</MenuButton>
+                </li>
+              </ul>
+            </div>
+            <div className={styles['menu-links']}>
+              <div className={styles['phone-icon']}></div>
+              <Divider />
+              <div className={styles['search-icon']}>
+                <span>Cerca una sede</span>
+              </div>
+              <Divider variant="tall" />
+              <div className={styles['profile-icon']}></div>
+            </div>
+          </nav>
+        )}
+      </header>
+      <section className="w-100 mx-0 sm:mx-11 mb-52">
+        <div className="relative">
+          <img
+            className="min-h-[425px] object-none sm:object-contain sm:w-full"
+            src="https://assets.iwgplc.com/image/upload/c_fill,f_auto,q_auto,w_936,h_424,g_auto:subject,ar_117:53/Sitecore/CD/-/media/regus/redesign/homepage/hero/searchv2heroofficespace.ashx?h=848&w=2624&hash=B54B3CEE6CB804EA26005C7CB8025B88"
+          />
+          <div className="absolute top-2/4 left-2/4 translate-x-[-50%] translate-y-[-50%] w-full text-center px-5">
+            <h2 className="text-white text-sm sm:text-lg">
+              Da una singola postazione a un intero edificio. A te la scelta.
+            </h2>
+            <div className="flex items-end justify-center">
+              <h1 className="text-white sm:text-6xl text-4xl inline font-medium">Uffici a modo tuo</h1>
+              <span className="text-8xl text-red-600">.</span>
+            </div>
+          </div>
+          <div className={styles['search-widget']}>
+            <div className={styles['search-widget-categories']}>
+              <ul className="w-full justify-center hidden sm:flex">
+                <li className={`${styles['search-widget-category']} ${styles['search-widget-category-selected']}`}>
+                  <img
+                    className="w-6 h-6 mr-4"
+                    src="https://www.regus.com/-/media/regus/redesign/secondary-level-icons/solutionofficespace.ashx"
+                  />
+                  Uffici
+                </li>
+                <li className={styles['search-widget-category']}>
+                  <img
+                    className="w-6 h-6 mr-4"
+                    src="https://www.regus.com/-/media/regus/redesign/secondary-level-icons/solutioncoworking.ashx"
+                  />
+                  Coworking
+                </li>
+                <li className={styles['search-widget-category']}>
+                  <img
+                    className="w-6 h-6 mr-4"
+                    src="https://www.regus.com/-/media/regus/redesign/secondary-level-icons/solutionvirtualoffice.ashx"
+                  />
+                  Uffici Virtuali
+                </li>
+                <li className={styles['search-widget-category']}>
+                  <img
+                    className="w-6 h-6 mr-4"
+                    src="https://www.regus.com/-/media/regus/redesign/secondary-level-icons/solutionmeetingrooms.ashx"
+                  />
+                  Sale Riunioni
+                </li>
+              </ul>
+            </div>
+            <div className={styles['search-widget-searchbar']}>
+              <div className="gap-4 w-full px-8 py-6">
+                <SearchInput />
+                {!isMobile && <SearchButton text="Cerca" />}
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+      </section>
+      <section className="mx-4 md:mx-11 sm:flex md:flex-wrap justify-between md:gap-4">
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/platform_icon.ashx"
+          title="Le nostre soluzioni"
+          description="Esplora la nostra gamma di prodotti e servizi"
         />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/expert_icon.ashx"
+          title="Parla con noi"
+          description="Richiedi consigli ai nostri esperti, 24/7"
+        />
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/workspace_icon.ashx"
+          title="Prenota spazi di lavoro"
+          description="Prenota subito sale riunioni e uffici temporanei"
+        />
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/virtual_icon.ashx"
+          title="Configura un ufficio virtuale"
+          description="Inizia oggi a sviluppare una presenza reale"
+        />
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/membership_icon.ashx"
+          title="Acquista una membership"
+          description="Accedi on demand a migliaia di sedi nel mondo"
+        />
+        <Card
+          icon="https://www.regus.com/-/media/regus/redesign/primary-level-icons/app_icons.ashx"
+          title="Esplora la nostra app"
+          description="Scarica l'app e inizia subito"
+        />
+      </section>
     </main>
-  )
+  );
 }
