@@ -6,10 +6,10 @@ import MenuButton from '../components/MenuButton/MenuButton';
 import SearchButton from '../components/SearchButton/SearchButton';
 import SearchInput from '../components/SearchInput/SearchInput';
 import styles from '../styles/Home.module.scss';
-import useMediaQuery from './hooks/useMediaQuery';
+import useDeviceSize from './hooks/useDeviceSize';
 
 export default function Home() {
-  const isMobile = useMediaQuery(1440);
+  const [width, _] = useDeviceSize();
 
   return (
     <main>
@@ -17,7 +17,7 @@ export default function Home() {
         {'Spazi di lavoro impareggiabili. Ottimi sconti. Paghi il 25% in meno. *Si applicano Termini e condizioni'}
       </Banner>
       <header className="w-full">
-        {isMobile ? (
+        {width < 361 ? (
           <nav className="flex items-center justify-between mx-8 my-2">
             <div>
               <div className="text-base">🧾</div>
@@ -124,7 +124,7 @@ export default function Home() {
             <div className={styles['search-widget-searchbar']}>
               <div className="gap-4 w-full px-8 py-6">
                 <SearchInput />
-                {!isMobile && <SearchButton text="Cerca" />}
+                {width > 360 && <SearchButton text="Cerca" />}
               </div>
             </div>
           </div>
